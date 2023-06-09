@@ -27,6 +27,9 @@ SECRET_KEY = 'django-insecure-ra7r&+zfr-b@g952-&nq69u$dz=um!t0#vt=62f7e&i5#9u23p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['https://laster-repo-production.up.railway.app']
+
 ALLOWED_HOSTS =['*']
 
 
@@ -83,8 +86,13 @@ WSGI_APPLICATION = 'book.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '04pj2y1mVXdWrsqyyRon',
+        'HOST': 'containers-us-west-157.railway.app',
+        'PORT': '6171',
     }
 }
 
