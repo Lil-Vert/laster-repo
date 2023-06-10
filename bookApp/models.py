@@ -55,7 +55,11 @@ class Post(models.Model):
     viewer = models.IntegerField(default=0)
     author = models.ForeignKey(Author, related_name='post', on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='myApp/image', blank=False, null=True)
+<<<<<<< HEAD
     slug = models.SlugField(max_length=100, null=True)
+=======
+    slug = models.SlugField(max_length=100,null=True)
+>>>>>>> 1aaba55e14463bc85949829dbdc28f31b237ad08
     categories = models.ManyToManyField(Category, related_name="categories")
 
     def __str__(self):
