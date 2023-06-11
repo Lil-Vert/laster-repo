@@ -20,7 +20,7 @@ class Author(models.Model):
     linkdin_url = models.CharField(max_length=225, blank=True, null=True)
     telgram_url = models.CharField(max_length=225, blank=True, null=True)
     tel = models.IntegerField(default="(234) ", null=True)
-    image = models.ImageField(upload_to='bookApp/image',  blank=False, null=True)
+    image = models.ImageField(upload_to='myApp/image',  blank=False, null=True)
     
     def __str__(self):
         return self.user.username
@@ -30,7 +30,7 @@ class Category(models.Model):
     title = models.CharField(max_length=20, blank=False, null=True)
     description = models.TextField(blank=False, null=True)
     slug = models.SlugField( blank=False, null=True)
-    thumbnail = models.ImageField(upload_to='bookApp/image',  blank=False, null=True)
+    thumbnail = models.ImageField(upload_to='myApp/image',  blank=False, null=True)
     timestamp = models.DateTimeField(auto_now_add=True, blank=False, null=True)
 
     def __str__(self):
@@ -54,7 +54,7 @@ class Post(models.Model):
     like = models.IntegerField(default=0)
     viewer = models.IntegerField(default=0)
     author = models.ForeignKey(Author, related_name='post', on_delete=models.CASCADE)
-    picture = models.ImageField(upload_to='bookApp/image', blank=False, null=True)
+    picture = models.ImageField(upload_to='myApp/image', blank=False, null=True)
     slug = models.SlugField(null=True)
     categories = models.ManyToManyField(Category, related_name="categories")
 
