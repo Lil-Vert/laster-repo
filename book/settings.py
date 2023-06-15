@@ -14,6 +14,10 @@ from pathlib import Path
 import os
 import dj_database_url
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ra7r&+zfr-b@g952-&nq69u$dz=um!t0#vt=62f7e&i5#9u23p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CSRF_TRUSTED_ORIGINS = ['https://laster-repo-production.up.railway.app']
 
@@ -43,9 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.humanize',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'ckeditor',
     'widget_tweaks',
     'bookApp',
-    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -140,6 +145,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ] 
 
+
+cloudinary.config( 
+  cloud_name = "dm9bghlnw", 
+  api_key = "138711263511768", 
+  api_secret = "baZX0tAgYX849vD1JE9pXeiZok4",
+  secure = True
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

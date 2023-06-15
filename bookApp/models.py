@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
+from cloudinary.models import CloudinaryField
 from django.template.defaultfilters import slugify
 from ckeditor.fields import RichTextField
 
@@ -20,7 +21,7 @@ class Author(models.Model):
     linkdin_url = models.CharField(max_length=225, blank=True, null=True)
     telgram_url = models.CharField(max_length=225, blank=True, null=True)
     tel = models.IntegerField(default="(234) ", null=True)
-    image = models.ImageField(upload_to='myApp/image',  blank=False, null=True)
+    image = CloudinaryField('image', blank=False, null=True)
     
     def __str__(self):
         return self.user.username
@@ -29,8 +30,8 @@ class Author(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=20, blank=False, null=True)
     description = models.TextField(blank=False, null=True)
-    slug = models.SlugField( blank=False, null=True)
-    thumbnail = models.ImageField(upload_to='myApp/image',  blank=False, null=True)
+    slug = models.SlugField(max_length=100, unique=True)
+    thumbnail = CloudinaryField('image', blank=False, null=True)
     timestamp = models.DateTimeField(auto_now_add=True, blank=False, null=True)
 
     def __str__(self):
@@ -54,8 +55,8 @@ class Post(models.Model):
     like = models.IntegerField(default=0)
     viewer = models.IntegerField(default=0)
     author = models.ForeignKey(Author, related_name='post', on_delete=models.CASCADE)
-    picture = models.ImageField(upload_to='myApp/image', blank=False, null=True)
-    slug = models.SlugField(null=True)
+    picture = CloudinaryField('image', blank=False, null=True)
+    slug = models.SlugField(max_length=100, unique=True)
     categories = models.ManyToManyField(Category, related_name="categories")
 
     def __str__(self):
