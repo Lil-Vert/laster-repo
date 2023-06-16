@@ -1,0 +1,42 @@
+{% extends 'bookApp/base.html' %}
+{% load static %}  
+{% block title %} Oops! Page Not Found {% endblock %} 
+  {% block content %}
+  {% block stylesheet %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 36px;
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+      color: #666;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 50px;
+    }
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  </style>
+  {% endblock %}
+  <img src="{% static 'bookApp/images/404.png'%}" alt="404 Error" />
+  <h1>Oops! Page Not Found</h1>
+  <p>Looks like you've wandered off into the abyss.</p>
+  <p>Here are a few things you can try:</p>
+  <ul>
+    <li><a href="/">Go back to the homepage</a></li>
+    <li><a href="javascript:history.back()">Go back to the previous page</a></li>
+    <li><a href="https://example.com/contact">Contact us</a> and let us know about this issue.</li>
+  </ul>
+  <p>Meanwhile, enjoy this adorable kitten:</p>
+  <img src="https://example.com/images/kitten.gif" alt="Adorable Kitten" />
+  {% endblock %}

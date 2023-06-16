@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (PhotoView,BlogView, DetailViews,SearchView, CategoryDetailView, SubcriptionView, CreatePostView, likePostView, viewerPostView,
- UpdatePostView, DeletePostView, AuthorDetailView, CommentsDetailView,AllArticleView, AllPostView, AboutView, ContactView, ContactFormView, CommentFormView)
+ UpdatePostView, DeletePostView, AuthorDetailView, CommentsDetailView,AllArticleView, AllPostView, AboutView, ContactView,error_404,error_500,
+  ContactFormView, CommentFormView)
 
 from . import views
 
@@ -24,6 +25,4 @@ urlpatterns = [
     path('article/post/delete/<slug:slug>', DeletePostView.as_view(), name='delete-post'),
     path('article/post/tag/<slug:slug>', CategoryDetailView.as_view(), name='cat'),
     path('author/<int:pk>', AuthorDetailView.as_view(), name='author-detail'),
-    
 ]
-

@@ -1,0 +1,43 @@
+{% extends 'bookApp/base.html' %}
+{% load static %}  
+{% block title %} Internal Server Error (500) {% endblock %} 
+  {% block content %}
+  {% block stylesheet %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 36px;
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+      color: #666;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 50px;
+    }
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  </style>
+  {% endblock %}
+  <img src="https://example.com/images/500.png" alt="500 Error" />
+  <h1>Internal Server Error (500)</h1>
+  <p>Oops! Something went wrong on our end.</p>
+  <p>Our team of highly trained monkeys is already working hard to fix this issue.</p>
+  <p>In the meantime, here are a few things you can try:</p>
+  <ul>
+    <li><a href="/">Go back to the homepage</a></li>
+    <li>Try again later. We apologize for the inconvenience.</li>
+    <li><a href="https://example.com/contact">Contact us</a> and let us know about this issue.</li>
+  </ul>
+  <p>Thank you for your patience!</p>
+  <img src="https://example.com/images/monkey.gif" alt="Hard-working Monkeys" />
+  {% endblock %}

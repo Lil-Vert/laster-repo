@@ -63,7 +63,6 @@ class BlogView(ListView):
         context = super().get_context_data(**kwargs)
         context['author'] = Author.objects.get(id=1)
         context['auth'] = Author.objects.all()
-        #context['comment'] = context['prints'].comment.all().count()
         context['commentcount'] = Comment.objects.values('post__title').annotate(Count('post__title'))
         context['sidebar'] = Post.objects.values('categories__title').annotate(Count('categories__title'))
         return context
@@ -308,3 +307,13 @@ class AuthorDetailView(DetailView):
     model = Author
     context_object_name = 'detail'
     template_name = 'myApp/profile.html'
+
+def error_404(request,exception):
+    response = render(request, 'bookApp/error_404.html',)
+    response.status_code = 404
+    return response
+
+def error_500(request):
+    response = render(request, 'bookApp/error_500.html',)
+    response.status_code = 500
+    return response

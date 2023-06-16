@@ -30,10 +30,21 @@
 				<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 			  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 				<ul>
-					<li><a href="#"><i class="icon-facebook"></i></a></li>
-					<li><a href="#"><i class="icon-twitter"></i></a></li>
-					<li><a href="#"><i class="icon-instagram"></i></a></li>
-					<li><a href="#"><i class="icon-linkedin"></i></a></li>
+					{% if author.facebook_url %}
+					<li><a href="{{author.facebook_url}}"><i class="icon-facebook"></i></a></li>
+					{% endif %}
+					{% if author.twitter_url %}
+					<li><a href="{{author.twitter_url}}"><i class="icon-twitter"></i></a></li>
+					{% endif %}
+					{% if author.instagram_url %}
+					<li><a href="{{author.instagram_url}}"><i class="icon-instagram"></i></a></li>
+					{% endif %}
+					{% if author.linkdin_url %}
+					<li><a href="{{author.linkdin_url}}"><i class="icon-linkedin"></i></a></li>
+					{% endif %}
+					{% if author.telegram_url %}
+					<li><a href="{{author.telegram_url}}"><i class="icon-telegram"></i></a></li>
+					{% endif %}
 				</ul>
 			</div>
 		</aside> <!-- END COLORLIB-ASIDE -->
