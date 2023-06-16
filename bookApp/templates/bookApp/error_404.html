@@ -35,8 +35,7 @@
   <ul>
     <li><a href="/">Go back to the homepage</a></li>
     <li><a href="javascript:history.back()">Go back to the previous page</a></li>
-    <li><a href="https://example.com/contact">Contact us</a> and let us know about this issue.</li>
+    <li><a href="{% url 'contact' %}">Contact us</a> and let us know about this issue.</li>
   </ul>
   <p>Meanwhile, enjoy this adorable kitten:</p>
-  <img src="https://example.com/images/kitten.gif" alt="Adorable Kitten" />
   {% endblock %}
